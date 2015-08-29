@@ -1,10 +1,14 @@
+var expect = require('chai').expect,
+    FILL_ME_IN;
+
 describe("About Mutability", function() {
 
   it("should expect object properties to be public and mutable", function () {
     var aPerson = {firstname: "John", lastname: "Smith" };
+
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toBe(FILL_ME_IN);
+    expect(aPerson.firstname).to.equal(FILL_ME_IN);
   });
 
   it("should understand that constructed properties are public and mutable", function () {
@@ -16,7 +20,7 @@ describe("About Mutability", function() {
     var aPerson = new Person ("John", "Smith");
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toBe(FILL_ME_IN);
+    expect(aPerson.firstname).to.equal(FILL_ME_IN);
   });
 
   it("should expect prototype properties to be public and mutable", function () {
@@ -30,13 +34,13 @@ describe("About Mutability", function() {
     };
 
     var aPerson = new Person ("John", "Smith");
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).to.equal(FILL_ME_IN);
 
     aPerson.getFullName = function () {
       return this.lastname + ", " + this.firstname;
     };
 
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).to.equal(FILL_ME_IN);
   });
 
   it("should know that variables inside a constructor and constructor args are private", function () {
@@ -54,15 +58,15 @@ describe("About Mutability", function() {
     aPerson.lastname = "Andrews";
     aPerson.fullName = "Penny Andrews";
 
-    expect(aPerson.getFirstName()).toBe(FILL_ME_IN);
-    expect(aPerson.getLastName()).toBe(FILL_ME_IN);
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFirstName()).to.equal(FILL_ME_IN);
+    expect(aPerson.getLastName()).to.equal(FILL_ME_IN);
+    expect(aPerson.getFullName()).to.equal(FILL_ME_IN);
 
     aPerson.getFullName = function () {
       return aPerson.lastname + ", " + aPerson.firstname;
     };
 
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).to.equal(FILL_ME_IN);
   });
 
 });

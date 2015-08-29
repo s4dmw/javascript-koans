@@ -1,14 +1,23 @@
+var expect = require('chai').expect,
+    FILL_ME_IN;
+
+/**
+ * @constructor Muppet
+ * @param {Number} age
+ * @param {String} hobby
+ */
 function Muppet(age, hobby) {
   this.age = age;
   this.hobby = hobby;
 
   this.answerNanny = function(){
-	return "Everything's cool!";
+    return "Everything's cool!";
   }
 }
 
 function SwedishChef(age, hobby, mood) {
-  Muppet.call(this, age, hobby);
+  Muppet.call(this, age, hobby); // Reuse `Muppet` constructor...
+
   this.mood = mood;
 
   this.cook = function() {
@@ -16,29 +25,29 @@ function SwedishChef(age, hobby, mood) {
   }
 }
 
-SwedishChef.prototype = new Muppet();
+SwedishChef.prototype = new Muppet(); // Extend Muppet...
 
 describe("About inheritance", function() {
   beforeEach(function(){
     this.muppet = new Muppet(2, "coding");
-	this.swedishChef = new SwedishChef(2, "cooking", "chillin");
+    this.swedishChef = new SwedishChef(2, "cooking", "chillin");
   });
 
   it("should be able to call a method on the derived object", function() {
-    expect(this.swedishChef.cook()).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.cook()).to.equal(FILL_ME_IN);
   });
 
   it("should be able to call a method on the base object", function() {
-    expect(this.swedishChef.answerNanny()).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.answerNanny()).to.equal(FILL_ME_IN);
   });
 
   it("should set constructor parameters on the base object", function() {
-    expect(this.swedishChef.age).toEqual(FILL_ME_IN);
-    expect(this.swedishChef.hobby).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.age).to.equal(FILL_ME_IN);
+    expect(this.swedishChef.hobby).to.equal(FILL_ME_IN);
   });
 
   it("should set constructor parameters on the derived object", function() {
-    expect(this.swedishChef.mood).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.mood).to.equal(FILL_ME_IN);
   });
 });
 
@@ -63,23 +72,23 @@ Gonzo.prototype = Muppet.prototype.beget();
 
 describe("About Crockford's inheritance improvement", function() {
   beforeEach(function(){
-  this.gonzo = new Gonzo(3, "daredevil performer", "eat a tire");
+    this.gonzo = new Gonzo(3, "daredevil performer", "eat a tire");
   });
 
   it("should be able to call a method on the derived object", function() {
-    expect(this.gonzo.doTrick()).toEqual(FILL_ME_IN);
+    expect(this.gonzo.doTrick()).to.equal(FILL_ME_IN);
   });
 
   it("should be able to call a method on the base object", function() {
-    expect(this.gonzo.answerNanny()).toEqual(FILL_ME_IN);
+    expect(this.gonzo.answerNanny()).to.equal(FILL_ME_IN);
   });
 
   it("should set constructor parameters on the base object", function() {
-    expect(this.gonzo.age).toEqual(FILL_ME_IN);
-    expect(this.gonzo.hobby).toEqual(FILL_ME_IN);
+    expect(this.gonzo.age).to.equal(FILL_ME_IN);
+    expect(this.gonzo.hobby).to.equal(FILL_ME_IN);
   });
 
   it("should set constructor parameters on the derived object", function() {
-    expect(this.gonzo.trick).toEqual(FILL_ME_IN);
+    expect(this.gonzo.trick).to.equal(FILL_ME_IN);
   });
 });

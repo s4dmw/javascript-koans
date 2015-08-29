@@ -1,17 +1,16 @@
-var _; //globals
+var expect = require('chai').expect,
+    FILL_ME_IN;
 
-/* This section uses a functional extension known as Underscore.js - http://documentcloud.github.com/underscore/
-     "Underscore is a utility-belt library for JavaScript that provides a lot of the functional programming support
-      that you would expect in Prototype.js (or Ruby), but without extending any of the built-in JavaScript objects.
-      It's the tie to go along with jQuery's tux."
- */
+// This section uses a functional library called Lodash...
+var _ = require('lodash'); // https://lodash.com
+
 describe("About Higher Order Functions", function () {
 
   it("should use filter to return array items that meet a criteria", function () {
     var numbers = [1,2,3];
     var odd = _(numbers).filter(function (x) { return x % 2 !== 0 });
 
-    expect(odd).toEqual(FILL_ME_IN);
+    expect(odd).to.deep.equal(FILL_ME_IN);
     expect(odd.length).toBe(FILL_ME_IN);
     expect(numbers.length).toBe(FILL_ME_IN);
   });
@@ -20,8 +19,8 @@ describe("About Higher Order Functions", function () {
     var numbers = [1, 2, 3];
     var numbersPlus1 = _(numbers).map(function(x) { return x + 1 });
 
-    expect(numbersPlus1).toEqual(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(numbersPlus1).to.deep.equal(FILL_ME_IN);
+    expect(numbers).to.deep.equal(FILL_ME_IN);
   });
 
   it("should use 'reduce' to update the same result on each iteration", function () {
@@ -30,7 +29,7 @@ describe("About Higher Order Functions", function () {
             function(/* result from last call */ memo, /* current */ x) { return memo + x }, /* initial */ 0);
 
     expect(reduction).toBe(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(numbers).to.deep.equal(FILL_ME_IN);
   });
 
   it("should use 'forEach' for simple iteration", function () {
@@ -42,8 +41,8 @@ describe("About Higher Order Functions", function () {
 
     _(numbers).forEach(isEven);
 
-    expect(msg).toEqual(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(msg).to.deep.equal(FILL_ME_IN);
+    expect(numbers).to.deep.equal(FILL_ME_IN);
   });
 
   it("should use 'all' to test whether all items pass condition", function () {
@@ -67,13 +66,13 @@ describe("About Higher Order Functions", function () {
   });
 
   it("should use range to generate an array", function() {
-      expect(_.range(3)).toEqual(FILL_ME_IN);
-      expect(_.range(1, 4)).toEqual(FILL_ME_IN);
-      expect(_.range(0, -4, -1)).toEqual(FILL_ME_IN);
+      expect(_.range(3)).to.deep.equal(FILL_ME_IN);
+      expect(_.range(1, 4)).to.deep.equal(FILL_ME_IN);
+      expect(_.range(0, -4, -1)).to.deep.equal(FILL_ME_IN);
   });
 
   it("should use flatten to make nested arrays easy to work with", function() {
-      expect(_([ [1, 2], [3, 4] ]).flatten()).toEqual(FILL_ME_IN);
+      expect(_([ [1, 2], [3, 4] ]).flatten()).to.deep.equal(FILL_ME_IN);
   });
 
   it("should use chain() ... .value() to use multiple higher order functions", function() {
@@ -83,7 +82,7 @@ describe("About Higher Order Functions", function () {
                        .reduce(function (sum, x) { return sum + x })
                        .value();
 
-      expect(result).toEqual(FILL_ME_IN);
+      expect(result).to.deep.equal(FILL_ME_IN);
   });
 
 });
