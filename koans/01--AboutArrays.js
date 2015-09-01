@@ -10,9 +10,9 @@ describe("About Arrays", function() {
     expect(typeof(emptyArray)).to.equal('object');
     // A mistake? - http://javascript.crockford.com/remedial.html
 
-    // expect(emptyArray.length).to.equal(0);
+     expect(emptyArray.length).to.equal(0);
 
-    // expect(emptyArray).to.be.empty;
+     expect(emptyArray).to.be.empty;
 
     var multiTypeArray = [
       0,
@@ -24,19 +24,21 @@ describe("About Arrays", function() {
     ];
 
     // What is the value of each element?
-    expect(multiTypeArray[0]).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[0]).to.equal(0);
 
-    expect(multiTypeArray[2]).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[2]).to.equal("two");
 
     // Careful, this one is tricky... explain why!
-    expect( multiTypeArray[3]() ).to.equal(FILL_ME_IN);
+    // the 4th element is a function that returns 3
+    expect( multiTypeArray[3]() ).to.equal(3);
 
-    expect(multiTypeArray[4].value1).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[4].value1).to.equal(4);
 
     // What are those brackets doing there?
-    expect(multiTypeArray[4]["value2"]).to.equal(FILL_ME_IN);
+    // its looking for "value2" of element 5
+    expect(multiTypeArray[4]["value2"]).to.equal(5);
 
-    expect(multiTypeArray[5][0]).to.equal(FILL_ME_IN);
+   expect(multiTypeArray[5][0]).to.equal(6);
   });
 
   it("should understand array literals", function () {
