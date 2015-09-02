@@ -7,12 +7,12 @@ describe("About Arrays", function() {
   it("should create arrays", function() {
     var emptyArray = [];
 
-    expect(typeof(emptyArray)).to.equal(FILL_ME_IN);
+    expect(typeof(emptyArray)).to.equal('object');
     // A mistake? - http://javascript.crockford.com/remedial.html
 
-    expect(emptyArray.length).to.equal(FILL_ME_IN);
+     expect(emptyArray.length).to.equal(0);
 
-    expect(emptyArray).to.be.empty;
+     expect(emptyArray).to.be.empty;
 
     var multiTypeArray = [
       0,
@@ -24,19 +24,21 @@ describe("About Arrays", function() {
     ];
 
     // What is the value of each element?
-    expect(multiTypeArray[0]).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[0]).to.equal(0);
 
-    expect(multiTypeArray[2]).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[2]).to.equal("two");
 
     // Careful, this one is tricky... explain why!
-    expect( multiTypeArray[3]() ).to.equal(FILL_ME_IN);
+    // the 4th element is a function that returns 3
+    expect( multiTypeArray[3]() ).to.equal(3);
 
-    expect(multiTypeArray[4].value1).to.equal(FILL_ME_IN);
+    expect(multiTypeArray[4].value1).to.equal(4);
 
     // What are those brackets doing there?
-    expect(multiTypeArray[4]["value2"]).to.equal(FILL_ME_IN);
+    // its looking for "value2" of element 5
+    expect(multiTypeArray[4]["value2"]).to.equal(5);
 
-    expect(multiTypeArray[5][0]).to.equal(FILL_ME_IN);
+   expect(multiTypeArray[5][0]).to.equal(6);
   });
 
   it("should understand array literals", function () {
@@ -46,51 +48,51 @@ describe("About Arrays", function() {
 
     array[0] = 1;
 
-    expect(array).to.deep.equal([1]);
+   expect(array).to.deep.equal([1]);
 
     array[1] = 2;
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+   expect(array).to.deep.equal([1, 2]);
 
     array.push(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2, 3]);
   });
 
   it("should understand array length", function () {
     var fourNumberArray = [1, 2, 3, 4];
 
-    expect(fourNumberArray.length).to.equal(FILL_ME_IN);
+    expect(fourNumberArray.length).to.equal(4);
 
     fourNumberArray.push(5, 6);
 
-    expect(fourNumberArray.length).to.equal(FILL_ME_IN);
+    expect(fourNumberArray.length).to.equal(6);
 
     var tenEmptyElementArray = new Array(10);
 
-    expect(tenEmptyElementArray.length).to.equal(FILL_ME_IN);
+    expect(tenEmptyElementArray.length).to.equal(10);
 
     tenEmptyElementArray.length = 5;
 
-    expect(tenEmptyElementArray.length).to.equal(FILL_ME_IN);
+    expect(tenEmptyElementArray.length).to.equal(5);
   });
 
   it("should slice arrays", function () {
     var array = ["peanut", "butter", "and", "jelly"];
 
-    expect(array.slice(0, 1)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(0, 1)).to.deep.equal(['peanut']);
 
-    expect(array.slice(0, 2)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(0, 2)).to.deep.equal(['peanut', 'butter']);
 
-    expect(array.slice(2, 2)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(2, 2)).to.deep.equal([]);
 
-    expect(array.slice(2, 20)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(2, 20)).to.deep.equal(['and', 'jelly']);
 
-    expect(array.slice(3, 0)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(3, 0)).to.deep.equal([]);
 
-    expect(array.slice(3, 100)).to.deep.equal(FILL_ME_IN);
+    expect(array.slice(3, 100)).to.deep.equal(['jelly']);
 
-    expect(array.slice(5, 1)).to.deep.equal(FILL_ME_IN);
+//    expect(array.slice(5, 1)).to.deep.equal(FILL_ME_IN);
   });
 
   it("should know array references", function () {
@@ -102,33 +104,33 @@ describe("About Arrays", function() {
 
     passedByReference(array);
 
-    expect(array[1]).to.equal(FILL_ME_IN);
+    expect(array[1]).to.equal("changed in function");
 
     var assignedArray = array;
 
     assignedArray[5] = "changed in assignedArray";
 
-    expect(array[5]).to.equal(FILL_ME_IN);
+    expect(array[5]).to.equal("changed in assignedArray");
 
     var copyOfArray = array.slice();
 
     copyOfArray[3] = "changed in copyOfArray";
 
-    expect(array[3]).to.equal(FILL_ME_IN);
+    expect(array[3]).to.equal('three')
   });
 
   it("should push and pop", function () {
     var array = [1, 2];
 
-    expect(array.push(3)).to.equal(FILL_ME_IN);
+    expect(array.push(3)).to.equal(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2, 3]);
 
     var poppedValue = array.pop();
 
-    expect(poppedValue).to.equal(FILL_ME_IN);
+    expect(poppedValue).to.equal(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2]);
   });
 
   it("should know about shifting arrays", function () {
@@ -136,12 +138,14 @@ describe("About Arrays", function() {
 
     array.unshift(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([3, 1, 2]);
+    // array.unshift adds the argument(s) to the beginning of the array
 
     var shiftedValue = array.shift();
 
-    expect(shiftedValue).to.deep.equal(FILL_ME_IN);
+    expect(shiftedValue).to.deep.equal(3);
+    //while array.removes the first number of the array, the output of the command is 3
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2]);
   });
 });
