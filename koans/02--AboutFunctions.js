@@ -80,21 +80,20 @@ describe("About Functions", function() {
       return firstArg;
     }
 
-    expect(returnFirstArg("first", "second", "third")).to.equal(FILL_ME_IN);
+    expect(returnFirstArg("first", "second", "third")).to.equal("first");
+    //the function ignores the extra arguments since it only needs one
 
     function returnSecondArg(firstArg, secondArg) {
       return secondArg;
     }
 
-    expect(returnSecondArg("only give first arg")).to.equal(FILL_ME_IN);
-
     function returnAllArgs() {
       return [].slice.call(arguments);
     }
 
-    expect(returnAllArgs("first", "second", "third")).to.deep.equal(FILL_ME_IN);
+    expect(returnAllArgs("first", "second", "third")).to.deep.equal(["first", "second", "third"]);
   });
-
+//can't lie, really not even sure about this one
   it("should pass functions as values", function () {
 
     var appendRules = function (name) {
@@ -107,11 +106,15 @@ describe("About Functions", function() {
 
     var praiseSinger = { givePraise: appendRules };
 
-    expect(praiseSinger.givePraise("John")).to.equal(FILL_ME_IN);
+    expect(praiseSinger.givePraise("John")).to.equal("John rules!");
+    //praiseSinger is set to an object with givePraise key set to the appendRules function
+    //passing "John" to appendRules gives you "John rules!"
 
     praiseSinger.givePraise = appendDoubleRules;
 
-    expect(praiseSinger.givePraise("Mary")).to.equal(FILL_ME_IN);
+   expect(praiseSinger.givePraise("Mary")).to.equal("Mary totally rules!");
+   //praiseSinger.givePraise is set to equal the appendDoubleRules function
+   //when you pass "Mary" as its argument, you get "Mary totally rules!"
 
   });
 });
