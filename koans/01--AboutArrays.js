@@ -48,15 +48,15 @@ describe("About Arrays", function() {
 
     array[0] = 1;
 
-    expect(array).to.deep.equal([1]);
+   expect(array).to.deep.equal([1]);
 
     array[1] = 2;
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+   expect(array).to.deep.equal([1, 2]);
 
     array.push(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2, 3]);
   });
 
   it("should understand array length", function () {
