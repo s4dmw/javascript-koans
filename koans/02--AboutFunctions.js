@@ -9,7 +9,8 @@ describe("About Functions", function() {
       return a + b;
     }
 
-    expect(add(1, 2)).to.equal(FILL_ME_IN);
+    expect(add(1, 2)).to.equal(3);
+    //the add function takes the 2 arguments and adds them together
   });
 
   it("should know internal variables override outer variables", function () {
@@ -24,11 +25,14 @@ describe("About Functions", function() {
       return message;
     }
 
-    expect(getMessage()).to.equal(FILL_ME_IN);
+    expect(getMessage()).to.equal("Outer");
+    //the getMessage function returns message which was set to "Outer" globally
 
-    expect(overrideMessage()).to.equal(FILL_ME_IN);
+    expect(overrideMessage()).to.equal("Inner");
+    //the overrideMessage function assigns the message variable to be "Inner" which superscedes the global variable
 
-    expect(message).to.equal(FILL_ME_IN);
+    expect(message).to.equal("Outer");
+    //The global (outside the function) message variable is still set to "Outer"
   });
 
   it("should have lexical scoping", function () {
