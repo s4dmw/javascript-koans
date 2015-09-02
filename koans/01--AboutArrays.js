@@ -138,12 +138,14 @@ describe("About Arrays", function() {
 
     array.unshift(3);
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([3, 1, 2]);
+    // array.unshift adds the argument(s) to the beginning of the array
 
     var shiftedValue = array.shift();
 
-    expect(shiftedValue).to.deep.equal(FILL_ME_IN);
+    expect(shiftedValue).to.deep.equal(3);
+    //while array.removes the first number of the array, the output of the command is 3
 
-    expect(array).to.deep.equal(FILL_ME_IN);
+    expect(array).to.deep.equal([1, 2]);
   });
 });
