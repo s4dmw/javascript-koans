@@ -104,19 +104,19 @@ describe("About Arrays", function() {
 
     passedByReference(array);
 
-    expect(array[1]).to.equal(FILL_ME_IN);
+    expect(array[1]).to.equal("changed in function");
 
     var assignedArray = array;
 
     assignedArray[5] = "changed in assignedArray";
 
-    expect(array[5]).to.equal(FILL_ME_IN);
+    expect(array[5]).to.equal("changed in assignedArray");
 
     var copyOfArray = array.slice();
 
     copyOfArray[3] = "changed in copyOfArray";
 
-    expect(array[3]).to.equal(FILL_ME_IN);
+    expect(array[3]).to.equal('three')
   });
 
   it("should push and pop", function () {
