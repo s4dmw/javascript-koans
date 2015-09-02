@@ -49,7 +49,8 @@ describe("About Functions", function() {
       return childfunction();
     }
 
-    expect(parentfunction()).to.equal(FILL_ME_IN);
+    expect(parentfunction()).to.equal("local");
+    // "local" is passed from parentfunction to childfunction then returned
   });
 
   it("should use lexical scoping to synthesise functions", function () {
@@ -67,8 +68,11 @@ describe("About Functions", function() {
 
     var mysteryFunction5 = makeMysteryFunction(5);
 
-    expect(mysteryFunction3(10) + mysteryFunction5(5)).to.equal(FILL_ME_IN);
+    expect(mysteryFunction3(10) + mysteryFunction5(5)).to.equal(23);
   });
+  // this one makes my brain hurt!!!
+  //through some sort of voodoo magic, mysteryFunction3(10) returns 13 (10+3)
+  // and mysteryFunction5(5) returns 10 (5+5)...add them up and voila, 23
 
   it("should allow extra function arguments", function () {
 
